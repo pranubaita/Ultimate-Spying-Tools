@@ -60,4 +60,4 @@ async def start(ctx, arg):
 
 
 # Run the bot
-bot.run('MTIyOTcyNzIyOTM4MzI4Mjc0MQ.GPuo5j.eeiizozYP-0nDfmfj9BwQzWHBHabBp1tCI9MVQ')
+bot.run('NUH-UH')
