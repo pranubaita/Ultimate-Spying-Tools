@@ -5,7 +5,6 @@ import os
 import time
 
 
-# Function to block applications
 def block_applications(applications):
     while True:
         for proc in psutil.process_iter(['pid', 'name']):
@@ -19,7 +18,7 @@ def block_applications(applications):
 
 
 intents = discord.Intents.all()
-# Discord Bot setup
+
 bot = commands.Bot(command_prefix='sudo ', intents=intents)
 
 
@@ -31,10 +30,10 @@ async def on_ready():
 @bot.command()
 async def block(ctx):
     await ctx.send('Blocking now')
-    applications_to_block = ["java.exe", "javaw.exe"]  # Add the names of applications you want to block
+    applications_to_block = ["java.exe", "javaw.exe"]
     block_applications(applications_to_block)
     await ctx.send('Applications blocked successfully!')
 
 
 # Run the bot
-bot.run('MTIyOTcyNzIyOTM4MzI4Mjc0MQ.GPuo5j.eeiizozYP-0nDfmfj9BwQzWHBHabBp1tCI9MVQ')
+bot.run('NUH-UH')
