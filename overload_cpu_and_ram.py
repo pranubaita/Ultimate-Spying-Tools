@@ -5,10 +5,9 @@ import time
 import multiprocessing
 
 
-# Function to increase CPU usage in each process
 def increase_cpu_usage(end_time):
     while True:
-        # Perform some computations to keep CPU busy
+
         for _ in range(10 ** 7):
             pass
 
@@ -16,16 +15,16 @@ def increase_cpu_usage(end_time):
             break
 
 
-# Function to increase RAM usage
+
 def increase_ram_usage(end_time):
-    data = bytearray(1024 * 1024 * 1024 * 5)  # Allocate 5 GB of memory
+    data = bytearray(1024 * 1024 * 1024 * 5)
     while True:
         if time.time() > end_time:
             break
 
 
 intents = discord.Intents.all()
-# Discord Bot setup
+
 bot = commands.Bot(command_prefix='sudo ', intents=intents)
 
 
@@ -38,13 +37,11 @@ async def on_ready():
 async def start(ctx, arg):
     await ctx.send('Starting slow down process.')
     if arg.isdigit():
-        # Set end time
+
         end_time = time.time() + int(arg)
 
-        # Determine the number of CPU cores
         num_cores = psutil.cpu_count()
 
-        # Start CPU and RAM usage increase in separate processes for each CPU core
         processes = []
         for _ in range(num_cores):
             cpu_process = multiprocessing.Process(target=increase_cpu_usage, args=(end_time,))
@@ -54,7 +51,6 @@ async def start(ctx, arg):
             cpu_process.start()
             ram_process.start()
 
-        # Wait for all processes to finish
         for p in processes:
             p.join()
 
